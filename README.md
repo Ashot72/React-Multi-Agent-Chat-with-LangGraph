@@ -24,7 +24,7 @@ This project consists of two parts:
 
 ---
 
-## 🚀 Clone and Run LangGraph Studio
+## 🚀 Clone and Run 
 
 ```bash
 # Clone the repository
