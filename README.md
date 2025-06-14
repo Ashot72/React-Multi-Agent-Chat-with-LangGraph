@@ -33,7 +33,7 @@ git clone https://github.com/Ashot72/React-Multi-Agent-Chat-with-LangGraph
 
 # LangGraph Studio
 
-cd langgraph-agents
+cd React-Multi-Agent-Chat-with-LangGraph/langgraph-agents
 
 # Create the .env file based on env.example.txt and include the required keys
 # (e.g., OpenAI API key, Tavily Search key, and NodeMailer settings)
@@ -46,12 +46,12 @@ npm start
 
 # React App
 
-cd langgraph-multichat
+cd React-Multi-Agent-Chat-with-LangGraph/langgraph-multichat
 
 # Install dependencies
 npm install
 
-# Start the React app
+# Start the React app (http://localhost:3000)
 npm run dev
 
 ```
