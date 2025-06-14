@@ -1,0 +1,723 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{color:#0563C1;
+	text-decoration:underline;}
+.MsoChpDefault
+	{font-size:12.0pt;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:115%;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link="#0563C1" vlink="#954F72" style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:20.0pt;line-height:115%'>React Multi-Agent Chat Powered by
+LangGraph Server Agents</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Video Link: <a
+href="https://youtu.be/q3ME4lPdib8" target="_blank">https://youtu.be/q3ME4lPdib8</a></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>GitHub Repository:
+<a href="https://github.com/Ashot72/React-Multi-Agent-Chat-with-LangGraph"
+target="_blank">https://github.com/Ashot72/React-Multi-Agent-Chat-with-LangGraph</a></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>We already built
+<a href="https://github.com/Ashot72/Ashot72-LangGrap.js-Server-Agents"
+target="_blank">LangGraph Server Agents</a>  <i>Chat, Search, Job Notification,
+</i>and<i> Supervisor Agent</i>. The Supervisor Agent determines which agent to
+use and routes the user prompt accordingly. </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>All agents
+run on the LangGraph.js server. </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1436 height=775 id="Picture 1"
+src="doc_files/image001.jpg"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 1</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>In this app,
+we will integrate LangGraph into our React application. We will use the <a
+href="https://langchain-ai.github.io/langgraph/cloud/how-tos/use_stream_react/"
+target="_blank">useStream() React hook</a>, which handles all the complexities
+of streaming, state management, and branching logic</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>allowing us
+to focus on building great chat experiences.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1419 height=627 id="Picture 2"
+src="doc_files/image002.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 2</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>After
+running LangGraph Studio, we connect to it by specifying an agent.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1368 height=776 id="Picture 3"
+src="doc_files/image003.jpg"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 3</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>We use the useStream()
+hook and do not need an API key, as we are in dev mode using LangGraph Studio.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1357 height=851 id="Picture 4"
+src="doc_files/image004.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 4</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>When we
+connect to an agent, we see the app's interface, but no thread is created
+because no message has been sent to the server.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1362 height=824 id="Picture 5"
+src="doc_files/image005.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 5</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Once we send
+a prompt, a new thread (conversation) is created.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1353 height=551 id="Picture 6"
+src="doc_files/image006.jpg"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 6</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>You can see
+the newly created thread in the Studio.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1376 height=532 id="Picture 7"
+src="doc_files/image007.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 7</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>You can edit
+the message and resend it.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1334 height=638 id="Picture 8"
+src="doc_files/image008.jpg"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 8</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>You can see
+that we now have two branches (forks). The last one is the response generated
+by asking, <i>How are you there?</i></span></p>
+
+<p class=MsoNormal><i><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></i></p>
+
+<p class=MsoNormal><img border=0 width=1263 height=569 id="Picture 9"
+src="doc_files/image009.jpg"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 9</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>This is the
+original response. You can edit the prompt multiple times and get new AI
+responses.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1198 height=669 id="Picture 10"
+src="doc_files/image010.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 10</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>You see the
+last response in the Studio as the second response.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1361 height=678 id="Picture 11"
+src="doc_files/image011.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 11</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>This is the
+first prompt.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1321 height=597 id="Picture 12"
+src="doc_files/image012.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 12</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>We can also
+regenerate an AI response. In our case, the responses are the same both times;
+however, in the video, you can see I generated three different responses
+regarding the JavaScript alert.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1312 height=699 id="Picture 13"
+src="doc_files/image013.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 13</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>This is the
+same response, and in this case, they are identical.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1325 height=685 id="Picture 14"
+src="doc_files/image014.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 14</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Note that we
+generated this for the first prompt (branch), which was How are you?</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1379 height=625 id="Picture 15"
+src="doc_files/image015.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 15</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>For the
+second prompt, we still have one AI response.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1349 height=774 id="Picture 16"
+src="doc_files/image016.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 16</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>You can see
+it in LangGraph Studio as well.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1189 height=841 id="Picture 17"
+src="doc_files/image017.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 17</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>In the <i>Chat
+Agent</i>, we allow users to upload images (the upload icon is visible) and ask
+questions about them.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1330 height=821 id="Picture 18"
+src="doc_files/image018.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 18</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>The uploaded
+base64 image can be seen in the Studio as well.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1365 height=782 id="Picture 19"
+src="doc_files/image019.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 19</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Another
+agent we connect to is the Search Agent. Unlike the Chat Agent, it can fetch
+real data using <i>Tavily Search</i>. For example, if you ask, <i>What</i>'<i>s
+the weather in Yerevan?</i> the </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Chat Agent
+cannot answer because it does not have access to live data.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1463 height=710 id="Picture 20"
+src="doc_files/image020.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 20</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Search
+Agent.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1242 height=739 id="Picture 21"
+src="doc_files/image021.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 21</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>You can go
+to previous threads (conversations) of the same agent and even continue the
+conversation from those threads.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1057 height=839 id="Picture 25"
+src="doc_files/image022.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 22</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>The third
+agent is the <a
+href="https://github.com/Ashot72/Job-Interview-Notification-AI-Agent-LangGraph-JS"
+target="_blank">Job Notification Agent</a>, where a recruiter can select the
+best candidate for a position simply by providing a prompt and sending an email
+notification.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1022 height=821 id="Picture 24"
+src="doc_files/image023.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 23</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>In this
+agent, we use human interaction, which means a human decides what to do next.
+This is called an interrupt.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>The first
+interrupt is the candidate selection interrupt. The candidate can be <b>accepted</b>,
+which means they move to the next step — the email sending interrupt. </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Another
+option is <b>sending a response</b>, which means selecting another best-fit
+candidate. The candidate can also be <b>ignored</b>, which means we don't want
+to </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>proceed any
+further and the process stops.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1268 height=679 id="Picture 27"
+src="doc_files/image024.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 24</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>In this
+agent, we first select categories that match the prompt.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1259 height=595 id="Picture 28"
+src="doc_files/image025.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 25</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Then we
+retrieve the list of candidates (employees).</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1243 height=552 id="Picture 29"
+src="doc_files/image026.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 26</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>We then
+select the best candidate.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1368 height=727 id="Picture 30"
+src="doc_files/image027.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 27</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>After
+selecting the best-fit candidate, we reach the v<i>erify_employee </i>interrupt,
+where a human must decide what to do next. This interrupt has four options: <b>Allow
+Accept</b>, <b>Allow Edit</b>, <b>Allow Ignore</b>, </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>and <b>Allow
+Respond</b>. These are the same options you saw in the screenshots above. We
+disabled <b>Allow Edit</b> in the candidate selection case, as there's no
+reason to edit the candidate's information. </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>However, we
+will see this option in the next interrupt.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1117 height=814 id="Picture 31"
+src="doc_files/image028.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 28</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>We toggle on
+to select the next best-fit candidate by skipping the current one.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1062 height=853 id="Picture 32"
+src="doc_files/image029.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 29</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>We received
+the next best-fit candidate and triggered the <i>verify_employee</i> interrupt.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1268 height=699 id="Picture 33"
+src="doc_files/image030.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 30</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>In the
+Studio, we see the current best-fit candidate and two <i>best_employee</i> AI
+responses: the previous one and the current one.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1315 height=750 id="Picture 34"
+src="doc_files/image031.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 31</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>You see the
+candidates, and we can skip many before selecting the best-fit one.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1046 height=822 id="Picture 35"
+src="doc_files/image032.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 32</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>The selected
+candidate is suitable, so we accept them.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1027 height=815 id="Picture 36"
+src="doc_files/image033.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 33</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>After
+selecting the candidate, we hit another interrupt, which is the email sending
+interrupt.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=995 height=790 id="Picture 37"
+src="doc_files/image034.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 34</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Note that
+this interrupt allows options including <b>Allow Edit</b>.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1139 height=600 id="Picture 38"
+src="doc_files/image035.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 35</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>After
+generating the email via AI, we reach the next <i>verify_notification</i>
+interrupt, which allows editing.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=990 height=809 id="Picture 39"
+src="doc_files/image036.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 36</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Let's
+generate another email by skipping this one.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1122 height=739 id="Picture 40"
+src="doc_files/image037.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 37</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>AI generated
+another email for the candidate based on their skills.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1204 height=620 id="Picture 41"
+src="doc_files/image038.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 38</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>The second <i>verify_notification</i>
+interrupt.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1308 height=708 id="Picture 42"
+src="doc_files/image039.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 39</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>This is the
+generated email, which we can edit before sending since the <b>Allow Edit</b>
+option is enabled, as we saw earlier.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=978 height=816 id="Picture 43"
+src="doc_files/image040.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 40</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>We edited
+the email and submitted it.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1016 height=805 id="Picture 44"
+src="doc_files/image041.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 41</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>The email is
+sent to the candidate.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1346 height=658 id="Picture 45"
+src="doc_files/image042.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 42</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>The email received.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1404 height=668 id="Picture 46"
+src="doc_files/image043.jpg"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 42</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Sending
+emails is tricky when using the NodeMailer package. If you specify your Gmail
+username and password, it will not work. Google has changed its policy
+regarding this feature,</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>rendering it
+ineffective in resolving the problem. Thankfully, there is a solution that
+involves enabling 2-Step Verification and generating an app password.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Navigate
+to&nbsp;<a href="https://myaccount.google.com/u/2/security?hl=en">https://myaccount.google.com/u/2/security?hl=en</a>&nbsp;enable
+2-Step Verification, and create an app password, which I have already done.
+Then, put the app password in the .env file</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1351 height=618 id="Picture 48"
+src="doc_files/image044.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 44</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>The last
+agent is the Supervisor Agent, which routes the request to the appropriate
+agent based on the prompt.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1118 height=847 id="Picture 49"
+src="doc_files/image045.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 45</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>We asked two
+questions to the Supervisor Agent.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1334 height=802 id="Picture 50"
+src="doc_files/image046.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 46</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>The first
+prompt is handled by the Chat Agent.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1379 height=779 id="Picture 51"
+src="doc_files/image047.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 47</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>The second
+prompt is handled by the Search Agent, as it uses Tavily Search to query live
+data.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1036 height=836 id="Picture 52"
+src="doc_files/image048.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 48</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>The
+Supervisor Agent redirects the prompt to the Job Notification Agent.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1326 height=605 id="Picture 53"
+src="doc_files/image049.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 49</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>In LangGraph
+Studio.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1384 height=661 id="Picture 54"
+src="doc_files/image050.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 50</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>For testing
+purposes, let's change the interrupt options. For the verify_employee
+interrupt, we set <b>Allow Ignore</b> and <b>Allow Respond</b> to false. In the
+verify_notification interrupt, we set </span></p>
+
+<p class=MsoNormal><b><span style='font-size:14.0pt;line-height:115%'>Allow
+Accept</span></b><span style='font-size:14.0pt;line-height:115%'> to false.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=981 height=845 id="Picture 55"
+src="doc_files/image051.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 51</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>You can see
+that on the best-fit participant page, you cannot ignore or send a response the
+only way to continue is to accept the candidate.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=995 height=786 id="Picture 56"
+src="doc_files/image052.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 52</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>On the email
+sending page, you cannot accept it directly, you have to modify the content and
+then submit it.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=997 height=793 id="Picture 57"
+src="doc_files/image053.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 53</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>The Studio
+button opens the LangGraph Studio.</span></p>
+
+<p class=MsoNormal><img border=0 width=961 height=806 id="Picture 58"
+src="doc_files/image054.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 54</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>We can also
+stop the stream.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1035 height=763 id="Picture 59"
+src="doc_files/image055.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 55</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>This can be
+seen in the LangGraph Studio.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1044 height=777 id="Picture 60"
+src="doc_files/image056.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 56</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Mark as
+Resolved terminates (ENDs) or completes a graph or workflow execution.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1220 height=751 id="Picture 61"
+src="doc_files/image057.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>Figure 57</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>The .env file
+requires the OpenAI API key, the Tavily Search key (which is free), and email
+settings for NodeMailer.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:115%'>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>
