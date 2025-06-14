@@ -29,7 +29,7 @@ This project consists of two parts:
 ```bash
 # Clone the repository
 
-git https://github.com/Ashot72/React-Multi-Agent-Chat-with-LangGraph
+git clone https://github.com/Ashot72/React-Multi-Agent-Chat-with-LangGraph
 
 # LangGraph Studio
 
