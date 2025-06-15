@@ -4,6 +4,8 @@ I built a **React Multi-Agent Chat App** powered by **LangGraph Server Agents**.
 
 The experience is similar to ChatGPT — users can edit a human prompt to generate alternative responses, view them as branches, and even regenerate AI responses for the same prompt. Additionally, the app supports **thread history**, allowing users to revisit and continue any previous conversation at any time.
 
+You can read about the [Job Notification Agent](https://github.com/Ashot72/Job-Interview-Notification-AI-Agent-LangGraph-JS) that I created, and the [LangGraph.js Agents](https://github.com/Ashot72/Ashot72-LangGrap.js-Server-Agents) I used in this app.
+
 ## Agents
 
 - **Chat Agent** – Handles general conversations and allows users to upload images and ask questions about them.
